@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中组件间通信</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="text" v-model="msg">
+        
+    </div>
+<child-one></child-one>
+
+
+
+<script src="../static/vue_2.5.17.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:""
+        },
+        methods: {}
+    })
+
+    /*
+        父组件通过props传值给子组件
+    */
+
+    Vue.component('child-one', {
+        prors:['parentMsg'],
+        data() {
+            return {
+
+            }
+        },
+        template:`<p>父组件传到的内容：</p><p>${parentMsg}</p>`,
+    })
+
+
+</script>
+
+</body>
+</html>

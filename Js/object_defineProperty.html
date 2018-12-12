@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object_defineProperty</title>
+</head>
+<body>
+
+
+    <script>
+    
+    let obj = {
+        name: 'zhangsan',
+        age: 12,
+        sex: '男',
+        active: function(){
+            return 'I am zhangsan';
+        },
+    }
+    let a = "";
+
+    Object.defineProperty(obj, 'height', {  //数据描述符和存取描述符不能混合使用（即有get和set时，不能有value、writable值）
+        // value: '172cm',
+        configurable: true,       //
+        enumerable: true,        //是否可枚举，默认为false
+        // writable: true,          //值是否可以改变，默认为false
+        get: function() {
+            return height;
+        },
+        set: function(newVal) {
+            height = newVal;
+        }
+    })  
+
+    console.log(Object.keys(obj));
+    obj.height = '180cm';
+    a = obj.height;
+    console.log(obj);
+    </script>
+    
+</body>
+</html>
