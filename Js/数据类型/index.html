@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js数据类型</title>
+</head>
+<body>
+
+    <script>
+    
+        /*
+            1.ECMAScript中有五种简单数据类型（也称为基本数据类型）：undefined,null,Boolean,Number,String。还有一种
+              复杂数据类型Object。
+            2.变量未定义和未初始化，用typeof判断都返回undefined；
+            3.typeof 返回值有：undefiined(数据类型为undefined)、boolean(数据类型为boolean)、number(数据类型为number)、string(数据为string类型)、
+                              object(数据类型为object和null)、function(数据为函数)。
+            4.可以用Boolean()函数将任意类型转为boolean类型。
+
+            *****************Number********************
+            5.number存在最大和最小表示的值（最小为5e-324；最大为1.7976931348623157e+308）,即能表示的最大整数为17位，超过会以00代替；
+            6.NaN表示本来要返回数值的操作返回的值不是数值。NaN不会和任何的数值相同，包括本身，任何有关NaN的操作都返回NaN。
+            7.isNaN()会尝试把参数转成数值，如果不能转换着返回true，否则为false。
+            8.Number()
+            9.parseInt()
+            10.parseFloat()
+
+            ******************String******************
+            11.字符字面量（转义字符）：
+            12.转为字符串的方法：toString() 和 String()。
+            13.toString():除了null和undefined没有toString()方法外，其他数据类型都有toString()方法，包括String类型。
+            14.String()：将所有类型都转为字符串，包括null和undefined；
+            15.String()工作方式，有toString()方法的数据类型调用toString()方法（没有参数）。没有toString()方法的null和undefined类型返回"null"和"undefined"。
+
+            *****************Object******************
+            16.object的实例都具有下列的属性和方法
+                constructor：构造函数（保存在构造当前对象的函数，即构造函数）;
+                hasOwnProperty(propertyName):检查给定的属性是否存在于当前的实例中，参数名必须是字符串;
+                isPrototypeOf(object):用于检查传入的对象是否是传入对象的原型;
+                propertyIsEnumerable(propertyName):用于检查给定的属性是否能够使用 for-in语句来枚举;
+                toLacaleString():返回对象的字符串表示，该字符串与执行环境的地区对应
+                toString():返回对象的字符串表示;
+                valueOf():返回对象的字符串、数值或布尔值表示。通常与  toString()方法的返回值相同。
+
+        */
+
+        var message = "hellow word";
+        if(message) {
+            console.log('Value is true');
+        }
+    
+    </script>
+
+</body>
+</html>
