@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>js中this指向问题</title>
+	</head>
+	<body>
+		<div id="main">
+			文章链接<a href="https://finget.github.io/2018/11/28/this/" target="_blank">github</a>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			// 腾讯笔试题
+			
+			var x = 30;
+			var a = {
+				x: 15,
+				fn: function() {
+					var x = 30;
+					return function() {
+						return this.x;
+					}
+				}
+			}
+			
+			console.log(a.fn()); 
+			/*
+				直接调用对象a中的fn方法返回: function() {return this.x};
+			*/ 
+			
+			console.log((a.fn())()); 
+			/*
+				a.fn()返回一个函数，a.fn()()返回的函数自调，此时this指向window。返回的结果是:20
+			*/
+			
+			console.log(a.fn()());
+			/*
+				a.fn()返回一个函数，a.fn()()返回的函数自调，此时this指向window。返回的结果是:20
+			*/
+			
+			console.log((a.fn())() === a.fn()());
+			/*
+				由上面比较可知，两个表达式应该是相等的，返回true。
+			*/
+			
+			console.log(a.fn().call(this));
+			/*
+				将a.fn()返回的函数绑定到window上，此时this指向window，返回结果：20
+			*/
+			
+			console.log(a.fn().call(a));
+			/*
+				将a.fn()返回的函数绑定到对象a上，此时this指向a，返回结果：15
+			*/
+			
+		</script>
+	</body>
+</html>
