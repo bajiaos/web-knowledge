@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>检测js数据类型</title>
+	</head>
+	<body>
+		
+		<div id="main">
+			<h3>检测数据类型：JavaScript高级程序设计第6版__4.1.4</h3>
+		</div>
+		
+		<script type="text/javascript">
+			
+			/*======================typeof==========================*/
+			/*
+				在检测基本数据类型的时候可以使用typeof来判断;
+				在基本数据类型中Undefined, Boolean, String, Number使用typeof检测返回相对应的字符串;
+				Null在使用typeof时会被当做空对象引用，所以返回的是Object;
+				在引用数据类型中function使用typeof检测时会返回function;
+				其他引用数据类型都将返回Object;
+			*/ 
+		   
+		   var s = "Nicholas"; 
+			var b = true; 
+			var i = 22; 
+			var u; 
+			var n = null; 
+			var o = new Object(); 
+
+			alert(typeof s); //string 
+			alert(typeof i); //number 
+			alert(typeof b); //boolean 
+			alert(typeof u); //undefined 
+			alert(typeof n); //object 
+			alert(typeof o); //object 
+			
+			/*======================instanceof======================*/
+			/*
+				检测数据属于引用类型的哪种
+			*/
+		   
+			
+		</script>
+		
+	</body>
+</html>

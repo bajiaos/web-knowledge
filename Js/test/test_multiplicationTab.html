@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>multiplicationTab</title>
+		<style type="text/css">
+			#main {
+				width:738px;
+				margin:0 auto;
+				border:1px solid #ccc;
+			}
+			h1 {
+				text-align: center;
+				font-size: 24px;
+				letter-spacing: 5px;
+				color: #6d6c6c;
+			}
+			.col {
+				width: 80px;
+				display: inline-block;
+				border: 1px solid #e2e2e2;
+				height: 35px;
+				text-align: center;
+				line-height: 35px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="main">
+			<h1>九九乘法表</h1>
+			<div class="comtainer">
+				<div class="row" v-for="item_row in data" :key="item_row">
+					<span class="col" v-for="item_col in data" :key="item_col" v-if="item_col <= item_row">
+						{{item_row + '*' + item_col + '=' + item_row*item_col}}
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../static/vue_2.5.17.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			var vm = new Vue({
+				el: "#main",
+				data: {
+					data: [1,2,3,4,5,6,7,8,9]
+				}
+			})
+			
+		</script>
+	</body>
+</html>

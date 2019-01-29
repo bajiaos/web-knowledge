@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ES6学习——Proxy(代理)</title>
+		<style type="text/css">
+			a{
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<h5>文章链接：<a href="http://es6.ruanyifeng.com/#docs/proxy">ES6入门（阮一峰）——Proxy</a></h5>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			/*
+				1.定义：代理，即外界访问对象的时候，都必须通过这层拦截（就是数据劫持，想要获取和改变改对象就要通过代理的规则，所以代理可以对外界访问进行过滤和改写）
+				
+			*/
+			var proxy = new Proxy({}, {
+				get: function(target, key) {
+					console.log(target, key);
+					return key;
+				}
+			})
+			
+			console.log(proxy.name);
+			
+			
+			/*
+				2.Proxy支持13中拦截操作，即handler可以有13个属性
+			*/
+		   
+		   
+		   
+		   
+			
+			/*
+				一道有意思的面试题：什么样的a满足 (a === 1 && a === 2 && a === 3) === true呢？(注意是 3 个 =，也就是严格相等);
+				【这个主要解释利用js中的数据劫持来实现的可以使用Object.defineProperty()来实现】
+			*/ 
+		   
+			let current = 0;
+			Object.defineProperty(window, 'a', {  // 在获取a的时候进行劫持,返回对应的字符
+				get: function(){
+					current++;
+					return current;
+				}
+			})
+			console.log((a === 1 && a === 2 && a === 3) === true);
+			
+		</script>
+		
+	</body>
+</html>
