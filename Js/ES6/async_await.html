@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>async and await</title>
+	</head>
+	<body>
+		
+		
+	<script type="text/javascript">
+	  /*
+	    async:表示一个异步函数，作为关键字放在函数前面，表示异步函数。
+		await:等待的意思，只能放在async函数中，后面可以接任何表达式，但是一般都是接Promise对象，用来处理异步等待。
+	  */
+	  async function fn(falg) {
+		if(falg) {
+		  return 'hellow world';
+		} else {
+		  throw 'my god,failure';
+		}
+	  } 
+	  console.log(fn(true), fn(false));  
+	  // async函数返回的是Promise对象,如果函数有返回值会调用Promise.resolve()方法把返回值转为Promise对象作为返回.
+	  // async函数内部错误是会调用Promise.reject()方法返回一个promise对象.
+	  
+	  function waitTime(time) {
+	    return new Promise((resolve, reject) => {
+		  setTimeout(() => {
+			resolve(time + 's后执行的');  
+		  }, time*1000)
+	    })
+	  }
+	  async function fn1() {
+        let res = await waitTime(2);
+		alert(res);
+		console.log(('sss'))
+	  }
+	  fn1();
+	  console.log('9999');
+	  
+	</script>
+		
+	</body>
+</html>
