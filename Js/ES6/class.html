@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>类--class</title>
+	</head>
+	<body>
+	  <script type="text/javascript">
+	  	/*
+		  1.es6的类完全可以看成是构造函数的另一种写法
+		  2.构造函数的prototype属性，在 ES6 的“类”上面继续存在。事实上，类的所有方法都定义在类的prototype属性上面。
+		*/ 
+	     
+		function Point(x, y) {
+		  this.x = x;
+		  this.y = y;
+		} 
+	    let p = new Point(1,2);
+		console.log(p);
+		
+		class Fn {
+		  constructor(x, y) { // class默认的方法
+		    this.x = x;
+			this.y = y;
+		  }
+		}
+	    let f = new Fn(1,2);
+		console.log(f);
+		
+		/*
+		  constructor方法是类的默认方法，一个类必须有这个方法，没有显式声明的话，一个空的constructor方法会被默认添加；
+		  通过new生成对象实例的时候回自动调用constructor方法。
+		*/
+		class Fna {
+		  constructor(x,y) {
+			this.x = x;
+			this.y = y;
+		  }
+		  totalNum() {
+			return this.x + this.y;
+		  }
+		}
+		let h = new Fna(1,2);
+		console.log(h.__proto__, Fna.prototype); // h的__proto__属性指向的是Fna的Prototype对象;
+		
+		/*
+		  getter/setter:在“类”的内部可以使用get和set关键字，对某个属性设置存值函数和取值函数，拦截该属性的存取行为。
+		*/
+	    class Fn1 {
+		  constructor(a, b) {
+			this.a = a;
+			this.b = b;
+		  }
+		  get prop() {
+			return 'getter';
+		  }
+		  set prop(val) {
+			console.log('setter:' + val);
+			return 'setter:' + val;
+		  }
+	   }
+	   let inst = new Fn1(1, 2);
+	   console.log(inst.prop);
+	   inst.prop = 1122;
+	   
+	   
+	  </script>
+	</body>
+</html>
